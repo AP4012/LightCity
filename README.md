@@ -4,11 +4,11 @@ This project is a city-building game that includes various features and systems.
 
 ## Getting Started
 
-To get started with the project, you need to fork it from the following [https://github.com/AP4012/LightCity/fork](project-link). The second phase of the project involves implementing the initial game menu, which is a simple CLI menu.
+To get started with the project, you need to fork it 
 
 ### Prerequisites
 
-The project contains an initial structure and some implemented systems. Each team member is responsible for implementing a specific system. After completing the system implementations, unit tests should be created for each system to earn extra points.
+The project contains an initial structure and some implemented systems. Each team member is responsible for implementing a specific system.
 
 ## User Interface
 
