@@ -4,7 +4,7 @@ This project is a city-building game that includes various features and systems.
 
 ## Getting Started
 
-To get started with the project, you need to fork it from the following [link](project-link). The second phase of the project involves implementing the initial game menu, which is a simple CLI menu.
+To get started with the project, you need to fork it from the following [https://github.com/AP4012/LightCity/fork](project-link). The second phase of the project involves implementing the initial game menu, which is a simple CLI menu.
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ The following is an overview of the initial structure and implemented classes:
 10. **BankTurnOver**: The BankTurnOver class includes income and outcome.
 11. **BankAccount**: The BankAccount class represents the owner (a character), password, money, and the last change date.
 12. **Property**: The Property class includes an array of scales, an array of coordinates, and the owner.
-13. **StockMarket**: The StockMarket system works with the character's money and generates a profit or loss per second within the range of -0.3 to +0.3.
+13. **StockMarket**: The StockMarket system works with the character's money and generates a profit or loss per second within the range of -0.03 to +0.03.
 14. **Food & Liquid**: Includes water and food options.
 15. **Industry**: The Industry class includes the title, income, and a list of employees.
 
