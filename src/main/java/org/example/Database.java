@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.models.User;
 
-import javax.xml.crypto.Data;
 import java.sql.*;
 
 public class Database {
@@ -11,17 +10,17 @@ public class Database {
     static final String DB_URL = "jdbc:mysql://localhost/lightcity";
 
     // Database credentials
-    static final String USER = "your_username";
-    static final String PASS = "your_password";
+    static final String USER = "root";
+    static final String PASS = "19911994";
 
 
-    private Connection conn;
-
+    private Connection connection;
+    static boolean information = false;
     public Database() {
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("Connecting to database...");
+            connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
         } catch (Exception exp) {
             System.out.println("Database Exception : \n" + exp.toString());
             System.exit(0);
@@ -38,7 +37,7 @@ public class Database {
         String query = "CREATE TABLE IF NOT EXISTS Users (username varchar(255) primary key ,password varchar(255));" +
                 "CREATE TABLE IF NOT EXISTS ....";
         try {
-            Statement stmt = conn.createStatement();
+            Statement stmt = connection.createStatement();
            if(stmt.execute(query)){
 
            }else
@@ -50,17 +49,22 @@ public class Database {
 
     }
 
-    public void loginGame(User user) {
+    public User loginGame(User user) {
         try {
-            Statement stmt = conn.createStatement();
-            String query = "";
-            ResultSet res = stmt.executeQuery(query);
-            while (res.next()) {
-//               Check
+            connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            String query = "SELECT Password from avatar WHERE Username = ? and Password = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,user.getUsername());
+            preparedStatement.setString(2,user.getPassword());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return user;
             }
         } catch (Exception exception) {
-        }
 
+        }
+        return null;
     }
 
     public void registerGame(User user) {

@@ -37,8 +37,10 @@ public class Menu {
     static Font font8 = new Font("SansSerif", 1, 20);
     static Font font9 = new Font("SansSerif", 2, 20);
 
-    private static Game game = new Game();
+    protected static Game game = new Game();
     private static Scanner scanner = new Scanner(System.in);
+
+    boolean information = false;
     public static void showMenu(){
         mainMenu();
     }
@@ -56,6 +58,7 @@ public class Menu {
         JButton Continue = new JButton(new AbstractAction("Continue") {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frame.dispose();
                 loginMenu();
             }
         });
@@ -67,6 +70,7 @@ public class Menu {
         JButton New = new JButton(new AbstractAction("Start New Game") {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frame.dispose();
                 signUpMenu();
             }
         });
@@ -78,6 +82,7 @@ public class Menu {
         JButton Join = new JButton(new AbstractAction("Join Server") {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frame.dispose();
                 joinServer();
             }
         });
@@ -106,7 +111,6 @@ public class Menu {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         frame1.dispose();
-
                         mainMenu();
                     }
                 });
@@ -221,7 +225,63 @@ public class Menu {
 
                     frame2.setVisible(true);
                 } else {
+                    frame1.dispose();
+                    User user = new User(username,pass);
+                    Database database = new Database();
+//                    database.loginGame(user);
+                    JFrame frame2;
+                    if (database.loginGame(user) != null) {
+                        frame2 = new JFrame("Signed in");
+                        frame2.setBounds(220,140,400,350);
+                        frame2.setLayout(null);
 
+                        JLabel label = new JLabel("Successfully signed in");
+                        label.setBounds(100, 80, 350, 40);
+                        label.setBackground(Menu.white2);
+                        label.setFont(Menu.font8);
+                        frame2.add(label);
+
+                        JButton button = new JButton(new AbstractAction("continue") {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                frame2.dispose();
+
+//                        Menu.game.continueGame(User );
+//                        return user;
+                                makeUser(user);
+                            }
+                        });
+                        button.setBounds(120, 220, 150, 35);
+                        button.setBackground(Menu.white3);
+                        button.setFont(Menu.font6);
+                        frame2.add(button);
+
+                    } else {
+                        frame2 = new JFrame("error");
+                        frame2.getContentPane().setBackground(Menu.white2);
+                        frame2.setBounds(220,140,400,350);
+                        frame2.setLayout(null);
+
+                        JLabel label = new JLabel("Invalid Information !");
+                        label.setBounds(110, 80, 350, 40);
+                        label.setBackground(Menu.white2);
+                        label.setFont(Menu.font8);
+                        frame2.add(label);
+
+                        JButton button = new JButton(new AbstractAction("try again") {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                frame2.dispose();
+                                Menu.loginMenu();
+                            }
+                        });
+                        button.setBounds(120, 220, 150, 35);
+                        button.setBackground(Menu.white3);
+                        button.setFont(Menu.font6);
+                        frame2.add(button);
+
+                    }
+                    frame2.setVisible(true);
                 }
             }
         });
@@ -244,6 +304,10 @@ public class Menu {
         frame1.setVisible(true);
 
         return null;
+    }
+
+    public static User makeUser(User user) {
+        return user;
     }
 
     public static void signUpMenu() {
