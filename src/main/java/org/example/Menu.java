@@ -48,7 +48,7 @@ public class Menu {
         frame.setLayout(null);
         frame.getContentPane().setBackground(blue4);
 
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\user\\IdeaProjects\\Growing_in_Light_city\\data\\background.jpg");
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\user\\Desktop\\project\\LightCity\\data\\background.jpg");
         JLabel imageLabel = new JLabel(imageIcon);
         imageLabel.setBounds(300,0,450,500);
         frame.add(imageLabel);
@@ -158,7 +158,7 @@ public class Menu {
         label2.setFont(font5);
         frame1.add(label2);
 
-        JTextField txt2 = new JTextField();
+        JPasswordField txt2 = new JPasswordField();
         txt2.setBounds(115,145,260,30);
         frame1.add(txt2);
 
