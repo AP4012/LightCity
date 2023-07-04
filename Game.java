@@ -25,6 +25,10 @@ public class Game implements GameInterface {
 
         System.out.print("Enter your password: ");
         pass = sc.nextLine();
+
+        Database database = new Database();
+
+        database.checkUserInfo(username, pass);
     }
 
     /** Create new city and Generate new Character
@@ -32,19 +36,10 @@ public class Game implements GameInterface {
      * */
     @Override
     public void startGame(User user) {
+
         generateNewCity();
         city.joinCharacter(user);
 
-        Scanner sc = new Scanner(System.in);
-
-        String username;
-        String pass;
-
-        System.out.print("\nEnter Username: ");
-        username = sc.nextLine();
-
-        System.out.print("Enter Password: ");
-        pass = sc.nextLine();
     }
 
     /**

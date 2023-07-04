@@ -9,10 +9,8 @@ public class Character implements CharacterInterface {
     private User userInfo;
     private BankAccount account;
     private Life life;
-
     private Job job;
     private ArrayList<Property> properties;
-
     private Property inPosition;
 
     public Character(User userInfo, BankAccount account, Life life, Job job, ArrayList<Property> properties, Property inPosition) {
