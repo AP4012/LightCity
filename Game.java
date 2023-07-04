@@ -6,6 +6,7 @@ import org.example.models.City;
 import org.example.models.User;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game implements GameInterface {
 
@@ -13,7 +14,17 @@ public class Game implements GameInterface {
     private City city;
     @Override
     public void continueGame(User user) {
-        
+
+        Scanner sc = new Scanner(System.in);
+
+        String username;
+        String pass;
+
+        System.out.print("\nEnter your username: ");
+        username = sc.nextLine();
+
+        System.out.print("Enter your password: ");
+        pass = sc.nextLine();
     }
 
     /** Create new city and Generate new Character
@@ -23,6 +34,17 @@ public class Game implements GameInterface {
     public void startGame(User user) {
         generateNewCity();
         city.joinCharacter(user);
+
+        Scanner sc = new Scanner(System.in);
+
+        String username;
+        String pass;
+
+        System.out.print("\nEnter Username: ");
+        username = sc.nextLine();
+
+        System.out.print("Enter Password: ");
+        pass = sc.nextLine();
     }
 
     /**

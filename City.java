@@ -54,8 +54,7 @@ public class City implements CityInterface {
                 while (true) {
                     System.out.println("Show Menu");
                     switch (scanner.next()) {
-                        case "2"-> System.out.println("Do Something");
-                        case "3"-> System.out.println("Do Something");
+                        case "2", "3" -> System.out.println("Do Something");
                     }
                 }
             } catch (Exception e) {
